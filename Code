@@ -1,0 +1,76 @@
+int led[] ={2,3,4,5,6,7};
+ int pir = 10;
+
+int data ;
+
+void setup() {
+ {
+   for (int i = 0; i < 9; i++)
+   {
+  pinMode(led[i], OUTPUT);
+   }
+}
+  pinMode(pir, INPUT);
+Serial.begin(9600);
+}
+
+void loop() {
+int value =  digitalRead(pir);
+  Serial.println(value);
+if (value == LOW)
+{
+
+  {
+digitalWrite(led[7],LOW);
+  }
+}
+else
+{
+  {
+digitalWrite(led[7],HIGH);
+  }
+}
+while(Serial.available() > 0)
+{
+   data = Serial.read();
+ 
+  switch(data) {
+  case 'A':
+    digitalWrite(2, HIGH);
+    delay(1000);
+    break;
+  case 'B':
+    digitalWrite(3, HIGH);
+    delay(1000); // Code for case B
+    break;
+  case 'C':
+     digitalWrite(4, HIGH);
+    delay(1000);// Code for case C
+    break;
+  case 'D':
+    digitalWrite(5, HIGH);
+    delay(1000); // Code for case D
+    break;
+  case 'E':
+     digitalWrite(6, HIGH);
+    delay(1000);// Code for case E
+    break;
+  case 'F':
+     digitalWrite(7, HIGH);
+    delay(1000);// Code for case F
+    break;
+  case 'G':
+     digitalWrite(led[6], LOW);
+    delay(1000);//
+    break;
+ 
+  default:
+    digitalWrite(led[6], LOW);
+    delay(1000);
+    break;
+}
+
+
+
+}
+}
